@@ -1,0 +1,146 @@
+
+*{
+  padding: 0px;
+  margin: 0px;
+  }
+body{
+
+    padding: 70px;
+
+              background-image: url('http://cdn.playbuzz.com/cdn/64846bcf-6fcc-4cdb-aa99-dd54f20822b1/d5858d29-4f76-4e81-b2bc-df2d5977e7cb.jpg');
+
+}
+
+#header{
+
+    width: 100%;
+
+            height: 60px;
+
+                      padding: 20px;
+
+}
+
+#logo{
+
+    width: 100px;
+
+            height: 50px;
+
+}
+
+#auxilliary{
+
+    width: 100%;
+
+            height: 450px;
+
+                      position: relative;
+
+                                  top: 50px;
+
+}
+
+#signupdiv{
+
+    background-color:#404040; 
+
+      width: 60%;
+
+              float: left;
+
+                      position: absolute;
+
+                                  height: 400px;
+
+                                            opacity: 0.5;
+
+                                                      padding: 20px;
+
+}
+
+#signupdiv h1,h2,h3,h4{
+
+    color: white;
+
+}
+
+#signupdiv span{
+
+    font-size: 20px;
+
+}
+
+#signupdiv a img{
+
+    width: 250px;
+
+            height: 125px;
+
+}
+
+#logindiv{
+
+    background-color:#404040;
+
+      width: 30%;
+
+              right: 0px;
+
+                      position: absolute;
+
+                                  height: 400px;
+
+                                            opacity: 0.7;
+
+                                                      padding: 20px;
+
+                                                                color: white;
+
+}
+
+.credentials{
+
+    height: 40px;
+
+              border-radius: 20px;
+
+}
+
+::-webkit-input-placeholder {
+
+     color: black;
+
+               font-size: 15px;
+
+}
+
+
+
+:-moz-placeholder { /* Firefox 18- */
+
+     color: black;
+
+               font-size:15px;  
+
+}
+
+
+
+::-moz-placeholder {  /* Firefox 19+ */
+
+     color: black;  
+
+               font-size: 15px;
+
+}
+
+
+
+:-ms-input-placeholder {  
+
+     color: black;  
+
+               font-size: 15px;
+
+}

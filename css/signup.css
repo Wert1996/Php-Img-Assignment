@@ -1,0 +1,107 @@
+*
+{
+paddding: 0px;
+
+  margin: 0px;
+
+  }
+
+body{
+
+    padding:30px;
+
+              background-image: url("https://thatdutchfilmlover.files.wordpress.com/2013/03/horrormovies.jpg");
+
+}
+
+#header{
+
+    height: 0px;
+
+              width: 100%;
+
+                      padding:20px;
+
+                                top: 0px;
+
+                                      left: 0px;
+
+                                              position: relative;
+
+}
+
+#container{
+
+    top: 0px;
+
+          padding: 40px;
+
+                    position: relative;
+
+                                height: 80%;
+
+                                          width: 50%;
+
+                                                  left: 25%;
+
+                                                          border-radius: 5%;
+
+                                                            border: 1px solid black;
+
+                                                                      display: block;
+
+                                                                                bottom: 40px;
+
+                                                                                          background-color: #0d0d0d;
+
+                                                                                            opacity: 0.8;
+
+}
+
+input, select{
+
+    height: 40px;
+
+              width: 280px;
+
+                      border-radius: 10%;
+
+}
+
+::-webkit-input-placeholder {
+
+     color: black;
+
+               font-size: 15px;
+
+}
+
+
+
+:-moz-placeholder { /* Firefox 18- */
+
+     color: black;
+
+               font-size:15px;  
+
+}
+
+
+
+::-moz-placeholder {  /* Firefox 19+ */
+
+     color: black;  
+
+               font-size: 15px;
+
+}
+
+
+
+:-ms-input-placeholder {  
+
+     color: black;  
+
+               font-size: 15px;
+
+}

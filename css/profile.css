@@ -1,0 +1,95 @@
+*
+{
+padding: 0px;
+
+  margin: 0px;
+
+  }
+
+body{
+
+    padding: 30px;
+
+}
+
+#dp{
+
+    border: 3px solid black;
+
+              width: 20%;
+
+                      height: 30%;
+
+                                margin-top: 60px;
+
+}
+
+.fill{
+
+    margin-top: 40px;
+
+      width: 75%;
+
+              height: 160px;
+
+                        color:#d9d9d9;
+
+                                opacity: 0.8;
+
+}
+
+#editp{
+
+    position: absolute;
+
+                right: 200px;
+
+                        width: 100px;
+
+                                height: 50px;
+
+                                          top: 200px;
+
+}
+
+.label{
+
+    background-color: #404040;
+
+      position: absolute;
+
+                  padding: 30px;
+
+                            left: 100px;
+
+                                    display:inline-block;
+
+                                              width: 20%;
+
+                                                      height: 50px;
+
+                                                                border: 2px solid black;
+
+                                                                          font-size: 30px;
+
+}
+
+.alabel{
+
+    background-color: #404040;
+
+      position: absolute;
+
+                  padding: 30px;
+
+                            right: 100px;
+
+                                    display:inline-block;
+
+                                              width: 50%;
+
+                                                      height: 50px;
+
+                                                                border: 2px solid black;
+
+                                                                          font
