@@ -20,23 +20,23 @@
 
                   <div id="container">
 
-                    <center><form action="signup.php" onsubmit="return f()">
+                    <center><form action="signup.php" onsubmit="return f()" method="post">
 
-                        <input type="text" name="firstname" placeholder="First Name" /><br><br>
+                        <input type="text" name="firstname" placeholder="First Name" required/><br><br>
 
-                            <input type="text" name="lastname" placeholder="Last Name" /><br><br>
+                            <input type="text" name="lastname" placeholder="Last Name" required/><br><br>
 
-                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)" /><br><br>
+                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)" required/><br><br>
 
-                                    <input type="text" name="password" placeholder="Pass Phrase" /><br><br>
+                                    <input type="password" name="password" placeholder="Pass Phrase" required/><br><br>
 
-                                        <input type="text" name="cpassword" placeholder="Confirm Pass Phrase" /><br><br>
+                                        <input type="password" name="cpassword" placeholder="Confirm Pass Phrase" required/><br><br>
 
                                             <select name="gender" ><option value="Male" >Male</option><option value="Female">Female</option></select><br><br>
 
-                                                <input type="text" name="email" placeholder="Valid Email" /><br><br>
+                                                <input type="text" name="email" placeholder="Valid Email" required/><br><br>
 
-                                                    <input type="date" name="dob" /><br><br><br><br>
+                                                    <input type="date" name="dob" required/><br><br><br><br>
 
                                                         <input type="image" alt="submit" src="https://www.capitalpridecenter.org/wp-content/uploads/2013/07/join-button.png" /><br><br><br>
 
@@ -53,12 +53,28 @@
                                                           $user="test";
                                                           $upass="test";
                                                           $dbname="test";
-                                                          $conn=mysqli_connect($server,$user,$upass,$dbname);
+                                                         if($_SERVER['REQUEST_METHOD']=="POST"){ 
+                                                          $fn=htmlspecialchars($_POST[firstname]);
+                                                          $ln=htmlspecialchars($_POST[lastname]);
+                                                          $gn=htmlspecialchars($_POST[ghostname]);
+                                                          $p=htmlspecialchars($_POST[password]);
+                                                          $g=htmlspecialchars($_POST[gender]);
+                                                          $em=htmlspecialchars($_POST[email]);
+                                                          $d=htmlspecialchars($_POST[dob]);
+
+                                                          $conn=mysql_connect($server,$user,$upass);
                                                           if($conn->connect_error){
                                                             die("Connection failed: " . $conn->connect_error);
                                                           }
-    
-                                                          $x="insert into anshumaan_userdata values(".$_POST['firstname'].",".$_POST['lastname'].",".$_POST['ghostname'].",".$_POST['password'].",".$_POST['lastname'].",".$_POST['gender'].",".$_POST['email'].",".$_POST['dob'].")";               
-if($conn->query($x) === TRUE){echo "<span style='color:white'>Your account has been created successfully</span>" ; }
-else echo "<span style='color:white;'>Your account could not be created.</span>";
+                                                          mysql_select_db("test",$conn);
+                                                          $str="random";
+                                                          $p=sha1($p.$str);
+                                                          $x="insert into anshumaan_userdata(firstname,lastname,ghostname,password,gender,email,date) values('$fn','$ln','$gn','$p','$g','$em','$d')";
+    if (!mysql_query($x,$conn))
+    {
+        die('Error: ' . mysql_error());
+          }
+         echo "<h1 style='color:white'>Your account has been created.<a href='login.php'>Log IN</a></h1>";
+           mysql_close($conn);
+                                                         }
 ?>
