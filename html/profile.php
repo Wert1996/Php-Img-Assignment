@@ -35,10 +35,12 @@ $match=0;
                   $sc=$row["stories_contributed"];
                   $sr=$row["stories_read"];
                   $rpass=$row["password"];
-                  $back=$row["back_img"];
+                  $back=$row["back_image"];
+                  $per=$row["personal_life"];
+                  $fs=$row["favorite_stories"];
                   if($pass===$rpass){$match=1;}
-              if($match){$_SESSION[n]=$username; echo "<body background=".$back.">
-              <center><img src='".$img_src."' id='dp' />
+              if($match){$_SESSION[n]=$username; echo "<body style='background-image:url('$back')'>
+              <center><img src=".$img_src." id='dp' />
                <a href='editprofile.php'><img id='editp' src='https://image.freepik.com/free-icon/user-profile-edit-button_318-32453.jpg'/></a>                                                                      <div class='fill'><div class='label'>Rank</div><div class='alabel'>".$rank."</div></div>
                <div class='fill'><div class='label'>Ghost Name</div><div class='alabel'>".$ghostname."</div></div>                                                                                                    <div class='fill'><div class='label'>Hobbies and Interests</div><div class='alabel'>".$hobbies."</div></div>                                                                                           <div class='fill'><div class='label'>Stories Contributed</div><div class='alabel'>".$sc."</div></div>
               <div class='fill'><div class='label'>Stories Read</div><div class='alabel'>".$sr."</div></div>
@@ -46,5 +48,5 @@ $match=0;
              <div class='fill'><div class='label'>Favorite Horror Stories</div><div class='alabel'>".$fs."</div></div></center>
              </body></html>";}
               else {echo "<p>The username and password do not match.<a href='login.php'>Try to login again.</a></p>";}
-?>
+              ?>
 
