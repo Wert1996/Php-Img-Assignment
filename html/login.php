@@ -80,6 +80,16 @@ if (empty($_POST[username])) {
                       if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
                                $nameErr = "Only letters and white space allowed";$valid=0; 
                                     }
+
+                         }
+if (empty($_POST[password])) {
+       $passErr = "Field required";
+          } else {
+                 $pass = test_input($_POST[password]);
+                      // check if name only contains letters and whitespace
+                      if (!preg_match("/^[a-zA-Z ]*$/",$pass)) {
+                               $passErr = "Only letters and white space allowed"; 
+                                    }
                          }
 $pass=sha1($_POST[password]."random");
 $sql="select * from anshumaan_userdata where ghostname='$username'"; 
