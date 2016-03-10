@@ -1,67 +1,93 @@
+<?php
+        session_start();
+?>
 <!doctype html>
 <html>
 
 <head>
 
-  <title>
+<title>
 
-      The Biggest Horror Stories Collection!!
+The Biggest Horror Stories Collection!!
 
-        </title>
+</title>
 
-        <link rel="icon" href="">
+<link rel="icon" href="../images/hslogo.jpg">
 
-        <link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../css/login.css">
+</head>
 
-        </head>
+<body>
 
-        <body>
+<div id="header">
+<img id="logo" src="../images/hslogo.jpg" />
 
-          <div id="header">
+</div>
 
-              <img id="logo" src="http://1079638729.rsc.cdn77.org/androidgame_img/real_horror_stories/real/1_real_horror_stories.jpg" />
+<div id="auxilliary">
 
-                </div>
+<div id="signupdiv">
 
-                  <div id="auxilliary">
+<center><h1>Welcome to the house of horrors!!</h1><br>
 
-                      <div id="signupdiv">
+<h3>Read stories straight out of the deepest corners of hell in this ghost library.</h3><br>
+<h3>Got a good story yourself?? Feel free to contribute. No pussy stuff here though. Only the toughest souls are allowed to stay!!</h3><br>
 
-                            <center><h1>Welcome to the house of horrors!!</h1><br>
+<h4>Log In At the Right or Get Registered as a Ghost by <br><h2>Clicking On the Image Below</h2>.</h4><br><br>
+<a href="signup.php"><img src="https://rugrabbit.com/sites/default/files/imagecache/big/susan_meller/19-2014/more_images/old_ledger_inside_cover.jpg" /></a></center>
+</div>
 
-                                  <h3>Read stories straight out of the deepest corners of hell in this ghost library.</h3><br>
+<div id="logindiv">
 
-                                        <h3>Got a good story yourself?? Feel free to contribute. No pussy stuff here though. Only the toughest souls are allowed to stay!!</h3><br>
+<center>
 
-                                              <h4>Log In At the Right or Get Registered as a Ghost by <br><h2>Clicking On the Image Below</h2>.</h4><br><br>
+<h1>Enter Thee!!</h1><br><br>
 
-                                                    <a href="signup.php"><img src="https://rugrabbit.com/sites/default/files/imagecache/big/susan_meller/19-2014/more_images/old_ledger_inside_cover.jpg" /></a></center>
+<form action="login.php" method="post">
 
-                                                        </div>
+<input type="text" placeholder="Pseudonym" name="username" class="credentials" /> <br><br>
+<input type="text" placeholder="Pass Phrase" name="password" class="credentials" /><br><br>
 
-                                                            <div id="logindiv">
+<input type="image" alt="submit" src="http://www.pixelations.com/ogham/content/ogart/enter.gif" /> 
 
-                                                                  <center>
+ </form>
 
-                                                                          <h1>Enter Thee!!</h1><br><br>
+</center>
 
-                                                                                    <form action="profile.php" method="post">
+ </div>
 
-                                                                                                <input type="text" placeholder="Pseudonym" name="username" class="credentials" /> <br><br>
+ </div>
 
-                                                                                                            <input type="text" placeholder="Pass Phrase" name="password" class="credentials" /><br><br>
+</body>
+ </html>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+$conn=mysqli_connect("172.25.55.156", "test", "test","test");
+if($conn->connect_error){
+    die("Connection failed: " .$conn->connect_error);}
 
-                                                                                                                        <input type="image" alt="submit" src="http://www.pixelations.com/ogham/content/ogart/enter.gif" /> 
-
-                                                                                                                                  </form>
-
-                                                                                                                                        </center>
-
-                                                                                                                                            </div>
-
-                                                                                                                                              </div>
-
-                                                                                                                                              </body>
-
-                                                                                                                                              </html>
-
+function test_input($data) {
+    $data = trim($data);
+      $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+          return $data;
+}
+if (empty($_POST[username])) {
+       $nameErr = "Name is required";$valid=0;
+          } else {
+                 $username = test_input($_POST["name"]);$valid=1;
+                      // check if name only contains letters and whitespace
+                      if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+                               $nameErr = "Only letters and white space allowed";$valid=0; 
+                                    }
+                         }
+$pass=sha1($_POST[password]."random");
+$sql="select * from anshumaan_userdata where ghostname='$username'"; 
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+$rpass=$row["password"];
+if($pass===$rpass && $valid===1){
+$_SESSION['n']=$username;
+$_SESSION['id']=$row['id'];
+echo "<script>window.location.assign('profile.php');</script>";}}
+?>
