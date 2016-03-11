@@ -59,96 +59,92 @@
                                                           $user="test";
                                                           $upass="test";
                                                           $dbname="test";
+                                                          $valid=0;
                                                          if($_SERVER['REQUEST_METHOD']=="POST"){ 
-                                                          f (empty($_POST[firstname])) {
-                                                                 $fnErr = "Field required";$valid--;
+                                                          if (empty($_POST[firstname])) {
+                                                                 echo "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $fn = test_input($_POST[firstname]);$valid++;
                                                                                 // check if name only contains letters and whitespace
                                                                                 if (!preg_match("/^[a-zA-Z ]*$/",$fn)) {
-                                                                                         $fnErr = "Only letters and white space allowed";$valid--; 
+                                                                                         echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
                                                                                               }
                                                                                    }
                                                           if (empty($_POST[lastname])) {
-                                                                 $lnErr = "Field required";$valid--;
+                                                                 echo "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $ln = test_input($_POST[lastname]);$valid++;
                                                                                 // check if name only contains letters and whitespace
                                                                                 if (!preg_match("/^[a-zA-Z ]*$/",$ln)) {
-                                                                                         $lnErr = "Only letters and white space allowed";$valid--; 
+                                                                                         echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
                                                                                               }
                                                                                    }
                                                           if (empty($_POST[ghostname])) {
-                                                                 $gnErr = "Field required";$valid--;
+                                                                 echo  "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $gn = test_input($_POST[ghostname]);$valid++;
                                                                                 // check if name only contains letters and whitespace
                                                                                 if (!preg_match("/^[a-zA-Z ]*$/",$gn)) {
-                                                                                         $gnErr = "Only letters and white space allowed";$valid--; 
+                                                                                         echo "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
                                                                                               }
                                                                                    }
                                                           if (empty($_POST[password])) {
-                                                                 $passErr = "Field required";$valid--;
+                                                                 echo  "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
-                                                                           $p = test_input($_POST[password]);$valid++;
-                                                                                // check if name only contains letters and whitespace
-                                                                                if (!preg_match("/^[a-zA-Z ]*$/",$p)) {
-                                                                                         $passErr = "Only letters and white space allowed";$valid--; 
+                                                                           $p=sha1($_POST[password]."random");$valid++; 
                                                                                               }
-                                                                                   }
                                                           if (empty($_POST[gender])) {
-                                                                 $gErr = "Field required";$valid--;
+                                                                 echo  "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $g = test_input($_POST[gender]);$valid++;
                                                                                 // check if name only contains letters and whitespace
                                                                                 if (!preg_match("/^[a-zA-Z ]*$/",$g)) {
-                                                                                         $gErr = "Only letters and white space allowed";$valid--; 
+                                                                                         echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
                                                                                               }
                                                                                    }
 
                                                           if (empty($_POST[email])) {
-                                                                 $emErr = "Field required";$valid--;
+                                                                 echo  "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $em = test_input($_POST[email]);$valid++;
-                                                                                // check if name only contains letters and whitespace
-                                                                                if (!preg_match("/^[a-zA-Z ]*$/",$p)) {
-                                                                                         $emErr = "Only letters and white space allowed";$valid--; 
+                                                                               if(!filter_var($em,FILTER_VALIDATE_EMAIL)===false) 
+                                                                                {
+                                                                                          $valid++;
                                                                                               }
+                                                                               else{echo "<h3 style='color:white'>Enter a valid Email Id</h3>";}
                                                                                    }
 
                                                           if (empty($_POST[dob])) {
-                                                                 $dErr = "Field required";$valid--;
+                                                                 echo "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $d = test_input($_POST[dob]);$valid++;
-                                                                                // check if name only contains letters and whitespace
-                                                                                if (!preg_match("/^[a-zA-Z ]*$/",$d)) {
-                                                                                         $dErr = "Only letters and white space allowed";$valid--; 
+                                                                                 
                                                                                               }
-                                                                                   }
-                                                          if(empty($_POST[cpassword]){
-                                                                $cperr="Field Required";$valid--;
+                                                                                   
+                                                          if(empty($_POST[cpassword])){
+                                                                echo "<h3 style='color:white'>Field Required</h3>";$valid--;
                                                                   } else {
-                                                                          $cp = test_input($_POST[cpassword]);$valid++;
-                                                                            if(!preg match("/^[a-zA-Z]*$/",$cp){
-                                                                                  $cperr="Only letters and white space required";$valid--;}
-                                                                                    else{ if($p!=$cp){$cperr="Passwords do not match.";$valid--;}}
+                                                                          $cp=sha1($_POST[cpassword]."random");
+                                                                          $valid++;
+                                                                                    if($p!=$cp){echo "<h3 style='color:white'>Passwords do not match.</h3>";$valid--;}
                                                                                     }
                                                           
-                                                          if($valid===9){
+                                                          if($valid==9){
                                                           $conn=mysql_connect($server,$user,$upass);
                                                           if($conn->connect_error){
                                                             die("Connection failed: " . $conn->connect_error);
                                                           }
                                                           mysql_select_db("test",$conn);
                                                           $str="random";
-                                                          $p=sha1($p.$str);
+                                                          
                                                           $x="insert into anshumaan_userdata(firstname,lastname,ghostname,password,gender,email,date) values('$fn','$ln','$gn','$p','$g','$em','$d')";
-    if (!mysql_query($x,$conn))
+    if (mysql_query($x,$conn))
     {
+        echo "<h1 style='color:white'>Your account has been created.<a href='login.php'>Log In</a></h1>";
+        mysql_close($conn);
         die('Error: ' . mysql_error());
           }
-         echo "<h1 style='color:white'>Your account has been created.<a href='login.php'>Log IN</a></h1>";
-           mysql_close($conn);
-                                                         }
-                                                         }
+    else{ die('Error: '.mysqli_error());}
+                }
+                }
 ?>
