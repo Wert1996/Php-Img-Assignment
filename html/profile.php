@@ -34,7 +34,7 @@
                   $rpass=$row["password"];
                   $per=$row["personal_life"];
                   $fs=$row["favorite_stories"];
-                  if(isset($_SESSION[n])){echo "<body style='background-image:url('../images/back/$_SESSION[id].jpg')'>
+                  if(isset($_SESSION[n])){echo "<body style=\"background-image:url('../images/back/$_SESSION[id].jpg')\">
                 <center>
                   <div id='header'><h2><a href='changepassword.php'>Change Password</a></h2><h2><a href='editprofile.php'>Edit Profile!</a></h2><h2><a href='logout.php'>Logout</a></h2></div>
                   <img src='../images/profile/$_SESSION[id].jpg' id='dp' />

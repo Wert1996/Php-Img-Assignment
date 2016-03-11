@@ -58,7 +58,7 @@ $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
        $file_name = $_FILES['profile_pic']['name'];
        $file_size= $_FILES['profile_pic']['size'];
        $file_tmp= $_FILES['profile_pic']['tmp_name'];
-       $file_type= $_FILES[$img]['type'];
+       $file_type= $_FILES['profile_pic']['type'];
        $file_ext=strtolower(end(explode('.',$_FILES['profile_pic']['name'])));
        $extensions= array('jpeg','jpg','png');
        if(in_array($file_ext,$extensions)===false){ 
@@ -72,21 +72,21 @@ $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
        }
 
-       $file_name = $_FILES['back_pic']['name'];
-      $file_size= $_FILES['back_pic']['size'];
-        $file_tmp= $_FILES['back_pic']['tmp_name'];
-         $file_type= $_FILES['back_pic']['type'];
-         $file_ext=strtolower(end(explode('.',$_FILES['back_pic']['name'])));
+       $file_name1 = $_FILES['back_pic']['name'];
+      $file_size1= $_FILES['back_pic']['size'];
+        $file_tmp1= $_FILES['back_pic']['tmp_name'];
+         $file_type1= $_FILES['back_pic']['type'];
+         $file_ext1=strtolower(end(explode('.',$_FILES['back_pic']['name'])));
 
-        $extensions= array('jpeg','jpg','png');
-        if(in_array($file_ext,$extensions)===false){ 
-        $errors[]="extensions not allowed,please choose a JPEG or PNG file.";
+        $extensions1= array('jpeg','jpg','png');
+        if(in_array($file_ext1,$extensions1)===false){ 
+        $errors1[]="extensions not allowed,please choose a JPEG or PNG file.";
         }
-        if($file_size>5000000){
-        $errors[]="File size must be lesser";
+        if($file_size1>5000000){
+        $errors1[]="File size must be lesser";
         }
-        if(empty($errors)==true){
-         move_uploaded_file($file_tmp, realpath(dirname(__FILE__)) . '/../images/' . $_SESSION[id].'.'.$file_ext);
+        if(empty($errors1)==true){
+         move_uploaded_file($file_tmp1, realpath(dirname(__FILE__)) . '/../images/back/' . $_SESSION[id].'.'.$file_ext1);
           }
       $sql1="update anshumaan_userdata set ghostname='$eg',hobbies='$hb',personal_life='$eper',favorite_stories='$efs' where id='$_SESSION[id]'";
      if(mysqli_query($conn, $sql1))
