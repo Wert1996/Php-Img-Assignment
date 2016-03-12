@@ -1,4 +1,16 @@
 <?php
+ $conn=mysqli_connect("172.25.55.156", "test", "test","test");
+        if($conn->connect_error){
+                        die("Conection failed: " .$conn->connect_error);}
+                                           $sql="select * from anshumaan_userdata where id=$_COOKIE[id]"; 
+                                                              $result=mysqli_query($conn,$sql);
+                                                                                 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+                                                                                                         $rank=$row['rank'];
+                                                                                                                                      $ghostname=$row['ghostname'];
+                                                                                                                                                                        $hobbies=$row['hobbies'];
+                                                                                                                                                                                                              $per=$row['personal_life'];
+                                                                                                                                                                                                                                                        $fs=$row['favorite_stories'];
+
       ?>
 <!doctype html>
 <html>
@@ -27,18 +39,9 @@ Edit your Disguise!
                      $data = htmlspecialchars($data);
                        return $data;
              }
+
              if($_SERVER["REQUEST_METHOD"]=="POST"){
-$conn=mysqli_connect("172.25.55.156", "test", "test","test");
-     if($conn->connect_error){
-     die("Connection failed: " .$conn->connect_error);}
-     $sql="select * from anshumaan_userdata where id=$_COOKIE[id]"; 
-$result=mysqli_query($conn,$sql);
-$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-     $rank=$row[rank];
-     $ghostname=$row[ghostname];
-     $hobbies=$row[hobbies];
-    $per=$row[personal_life];
-    $fs=$row[favorite_stories]; 
+
     if(empty($_POST[eg]))
           {
             echo "Ghostname cannot be empty.";$valid=0;

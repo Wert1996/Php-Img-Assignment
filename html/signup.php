@@ -68,11 +68,11 @@ setcookie('id',"",time()-3600);
                                                                  echo "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $fn = test_input($_POST[firstname]);$valid++;
-                                                                                // check if name only contains letters and whitespace
-                                                                                if (!preg_match("/^[a-zA-Z ]*$/",$fn)) {
-                                                                                         echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
+                                                                           if (!preg_match("/^[a-zA-Z ]*$/",$fn)) {
+                                                                                                                                                                                                                                               echo "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
+                                                                                                                                                                                                                                                                    }
                                                                                               }
-                                                                                   }
+                                                                                   
                                                           if (empty($_POST[lastname])) {
                                                                  echo "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
@@ -86,10 +86,6 @@ setcookie('id',"",time()-3600);
                                                                  echo  "<h3 style='color:white'>Field required</h3>";$valid--;
                                                                     } else {
                                                                            $gn = test_input($_POST[ghostname]);$valid++;
-                                                                                // check if name only contains letters and whitespace
-                                                                                if (!preg_match("/^[a-zA-Z ]*$/",$gn)) {
-                                                                                         echo "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid--; 
-                                                                                              }
                                                                                    }
                                                           if (empty($_POST[password])) {
                                                                  echo  "<h3 style='color:white'>Field required</h3>";$valid--;
@@ -145,9 +141,8 @@ setcookie('id',"",time()-3600);
     {
         echo "<h1 style='color:white'>Your account has been created.<a href='login.php'>Log In</a></h1>";
         mysql_close($conn);
-        die('Error: ' . mysql_error());
-          }
-    else{ die('Error: '.mysqli_error());}
+       
                 }
                 }
+            }
 ?>

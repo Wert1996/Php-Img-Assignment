@@ -10,9 +10,9 @@
 <body>
           <div id="header"><h2><a href="profile.php">Profile</a></h2><h2><a href="logout.php">Logout</a></h2></div>
           <form action="changepassword.php" method="post">
-          <input type="password" name="opass" placeholder=" Current Password" />&nbsp&nbsp<?php if($pl==2){ if(!$match){echo "Incorrect Password Entered";}} ?>  
-          <input type="password" name="npass" placeholder="New Password" />
-          <input type="password" name="cnpass" placeholder="Confirm New Password" />&nbsp&nbsp<?php if($pl==2){if(!$nmatch){echo "The passwords do not match";}} ?>
+          <input type="password" name="opass" placeholder=" Current Password" required/>&nbsp&nbsp<?php if($pl==2){ if(!$match){echo "Incorrect Password Entered";}} ?>  
+          <input type="password" name="npass" placeholder="New Password" required/>
+          <input type="password" name="cnpass" placeholder="Confirm New Password" required />&nbsp&nbsp<?php if($pl==2){if(!$nmatch){echo "The passwords do not match";}} ?>
           <input type="submit"/>
           </form>
           <div id="footer"></div>
