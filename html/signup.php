@@ -29,7 +29,7 @@ setcookie('id',"",time()-3600);
 
                           <input type="text" name="lastname" placeholder="Last Name" required/><?php  ?><br><br>
 
-                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)" required/><?php  ?><br><br>
+                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)"  onkeyup="checkusername(this.value)"  required/><p id="message" style='color:white;'></p><br><br>
 
                                     <input type="password" name="password" placeholder="Pass Phrase" required/><?php ?><br><br>
 
@@ -46,7 +46,7 @@ setcookie('id',"",time()-3600);
                                                           </form><p id="formerror"></p></center>
 
                                                           </div>
-                                                          <script src="../js/formval.js"></script>
+                                                          <script src="../js/ajax.js"></script>
 
                                                           </body>
 
