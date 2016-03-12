@@ -1,3 +1,6 @@
+<?php
+setcookie('id',"",time()-3600);
+?>
 <!doctype html>
 <html>
 <head>
@@ -22,21 +25,21 @@
 
                     <center><form action="signup.php" onsubmit="return f()" method="post">
 
-                      <input type="text" name="firstname" placeholder="First Name" required/><?php echo $fnerr ?><br><br>
+                      <input type="text" name="firstname" placeholder="First Name" required/><?php  ?><br><br>
 
-                          <input type="text" name="lastname" placeholder="Last Name" required/><?php echo $lnerr ?><br><br>
+                          <input type="text" name="lastname" placeholder="Last Name" required/><?php  ?><br><br>
 
-                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)" required/><?php echo $gnerr ?><br><br>
+                                <input type="text" name="ghostname" placeholder="Ghost Name (User Name :P)" required/><?php  ?><br><br>
 
-                                    <input type="password" name="password" placeholder="Pass Phrase" required/><?php echo $perr ?><br><br>
+                                    <input type="password" name="password" placeholder="Pass Phrase" required/><?php ?><br><br>
 
                                         <input type="password" name="cpassword" placeholder="Confirm Pass Phrase" required/><br><br>
 
-                                            <select name="gender" ><option value="Male" >Male</option><option value="Female">Female</option></select><?php echo $gerr ?><br><br>
+                                            <select name="gender" ><option value="Male" >Male</option><option value="Female">Female</option></select><?php  ?><br><br>
 
-                                                <input type="text" name="email" placeholder="Valid Email" required/><?php echo $emerr ?><br><br>
+                                                <input type="text" name="email" placeholder="Valid Email" required/><?php  ?><br><br>
 
-                                                    <input type="date" name="dob" required/><?php echo $derr ?><br><br><br><br>
+                                                    <input type="date" name="dob" required/><?php ?><br><br><br><br>
 
                                                         <input type="image" alt="submit" src="https://www.capitalpridecenter.org/wp-content/uploads/2013/07/join-button.png" /><br><br><br>
 

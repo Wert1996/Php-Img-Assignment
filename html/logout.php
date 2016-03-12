@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!doctype html>
 <html>
@@ -9,7 +8,6 @@ session_start();
 </body>
 </html>
 <?php
-session_unset();
-session_destroy();
+setcookie('id',"",time()-3600);
 echo "<script>window.location.assign('login.php');</script>";
 ?>

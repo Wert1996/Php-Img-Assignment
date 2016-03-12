@@ -1,5 +1,4 @@
 <?php
-session_start();
       ?>
 <!doctype html>
 <html>
@@ -32,7 +31,7 @@ Edit your Disguise!
 $conn=mysqli_connect("172.25.55.156", "test", "test","test");
      if($conn->connect_error){
      die("Connection failed: " .$conn->connect_error);}
-     $sql="select * from anshumaan_userdata where id=$_SESSION[id]"; 
+     $sql="select * from anshumaan_userdata where id=$_COOKIE[id]"; 
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
      $rank=$row[rank];
@@ -68,7 +67,7 @@ $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
            $errors[]="File size must be lesser";
       }
       if(empty($errors)==true){
-           move_uploaded_file($file_tmp, realpath(dirname(__FILE__)) . '/../images/profile/' . $_SESSION[id].'.'.$file_ext);
+           move_uploaded_file($file_tmp, realpath(dirname(__FILE__)) . '/../images/profile/' . $_COOKIE[id].'.'.$file_ext);
 
        }
 
@@ -86,9 +85,9 @@ $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
         $errors1[]="File size must be lesser";
         }
         if(empty($errors1)==true){
-         move_uploaded_file($file_tmp1, realpath(dirname(__FILE__)) . '/../images/back/' . $_SESSION[id].'.'.$file_ext1);
+         move_uploaded_file($file_tmp1, realpath(dirname(__FILE__)) . '/../images/back/' . $_COOKIE[id].'.'.$file_ext1);
           }
-      $sql1="update anshumaan_userdata set ghostname='$eg',hobbies='$hb',personal_life='$eper',favorite_stories='$efs' where id='$_SESSION[id]'";
+      $sql1="update anshumaan_userdata set ghostname='$eg',hobbies='$hb',personal_life='$eper',favorite_stories='$efs' where id='$_COOKIE[id]'";
      if(mysqli_query($conn, $sql1))
 {
       echo "Your profile was successfully edited.";

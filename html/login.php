@@ -1,6 +1,48 @@
 <?php
-        session_start();
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $conn=mysqli_connect("172.25.55.156", "test", "test","test");
+  if($conn->connect_error){
+        die("Connection failed: " .$conn->connect_error);}
+  $nameErr=$passErr="";
+  function test_input($data) {
+        $data = trim($data);
+              $data = stripslashes($data);
+                      $data = htmlspecialchars($data);
+                                return $data;
+  }
+  if (empty($_POST[username])) {
+           echo "<h3 style='color:white'>Name is required</h3>";$valid=0;
+                     } else {
+                                        $username = test_input($_POST["username"]);$valid=1;
+                                                              // check if name only contains letters and whitespace
+                                                              if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+                                                                                               echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid=0; 
+                                                                                                                                   }
+
+                                                                        }
+  if (empty($_POST[password])) {
+           echo  "<h3 style='color:white'>Field required</h3>";
+                     } else {
+                                        $pass=sha1($_POST[password]."random");
+                                                       {
+
+                                                                                             }
+                                                                                }
+  $sql="select * from anshumaan_userdata where ghostname='$username'"; 
+  $result=mysqli_query($conn,$sql);
+  $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+  $rpass=$row['password'];
+  $rid=$row['id'];
+  $cooname='id';
+  if ($valid){
+    if($pass===$rpass){
+      setcookie($cooname,$rid,time()+(86400));
+      echo "<script>window.location.assign('profile.php');</script>";}
+    else{echo "<h3 style='color:white'>The username or password is incorrect.</h3>";}}
+}
 ?>
+
+
 <!doctype html>
 <html>
 
@@ -50,55 +92,23 @@ The Biggest Horror Stories Collection!!
 
 <input type="image" alt="submit" src="http://www.pixelations.com/ogham/content/ogart/enter.gif" /> 
 
- </form>
+</form>
 
 </center>
 
- </div>
+</div>
 
- </div>
+</div>
 
 </body>
- </html>
-<?php
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-$conn=mysqli_connect("172.25.55.156", "test", "test","test");
-if($conn->connect_error){
-    die("Connection failed: " .$conn->connect_error);}
-$nameErr=$passErr="";
-function test_input($data) {
-    $data = trim($data);
-      $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-          return $data;
-}
-if (empty($_POST[username])) {
-       echo "<h3 style='color:white'>Name is required</h3>";$valid=0;
-          } else {
-                 $username = test_input($_POST["username"]);$valid=1;
-                      // check if name only contains letters and whitespace
-                      if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-                               echo  "<h3 style='color:white'>Only letters and white space allowed</h3>";$valid=0; 
-                                    }
+</html>
 
-          }
-if (empty($_POST[password])) {
-       echo  "<h3 style='color:white'>Field required</h3>";
-          } else {
-                 $pass=sha1($_POST[password]."random");
-               {
 
-                                    }
-                         }
-$sql="select * from anshumaan_userdata where ghostname='$username'"; 
-$result=mysqli_query($conn,$sql);
-$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-$rpass=$row['password'];
-if ($valid){
-if($pass===$rpass){
-$_SESSION['n']=$username;
-$_SESSION['id']=$row['id'];
-echo "<script>window.location.assign('profile.php');</script>";}
-else{echo "<h3 style='color:white'>The username or password is incorrect.</h3>";}}
-}
-?>
+
+
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!doctype html>
 <html>
@@ -20,7 +19,7 @@ session_start();
           </body>
           </html>
           <?php
-if(isset($_SESSION[id])){
+if(isset($_COOKIE[id])){
   if($_SERVER["REQUEST_METHOD"]=="POST"){
 //FETCH REAL PASSWORD
 $conn=mysqli_connect("172.25.55.156", "test", "test", "test");
@@ -28,7 +27,7 @@ if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
           }
-$sql="select password from anshumaan_userdata where id='$_SESSION[id]'";
+$sql="select password from anshumaan_userdata where id='$_COOKIE[id]'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result, MYSQLI_ASSOC);
 $rpass=$row['password'];
@@ -68,7 +67,7 @@ if($npass===$cnpass)
 }
 if($match===0 && $nmatch===1 && $valid==3)
 {
-      $sql1="update anshumaan_userdata set password='$npass' where id='$_SESSION[id]'";
+      $sql1="update anshumaan_userdata set password='$npass' where id='$_COOKIE[id]'";
           if(!mysqli_query($conn,$sql1))
                   {
                           echo "Error: ".mysqli_error();
