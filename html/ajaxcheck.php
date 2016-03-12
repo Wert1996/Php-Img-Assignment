@@ -7,11 +7,9 @@
   }
 $sql="select ghostname from anshumaan_userdata";
 $result=mysqli_query($conn, $sql);
-$users=mysqli_fetch_array($result, MYSQLI_NUM);
-$len=sizeof($users);
 $count=0;
-for($i=0;$i<$len;$i++){
-  if($q==$users[$i])
+while($users=mysqli_fetch_array($result, MYSQLI_BOTH)){
+  if($q==$users[0])
     $count++;
 }
 if($count){

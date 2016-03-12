@@ -37,7 +37,7 @@ setcookie('id',"",time()-3600);
 
                                             <select name="gender" ><option value="Male" >Male</option><option value="Female">Female</option></select><?php  ?><br><br>
 
-                                                <input type="text" name="email" placeholder="Valid Email" required/><?php  ?><br><br>
+                                                <input type="email" name="email" placeholder="Valid Email" required/><?php  ?><br><br>
 
                                                     <input type="date" name="dob" required/><?php ?><br><br><br><br>
 
