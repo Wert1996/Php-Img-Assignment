@@ -1,4 +1,5 @@
 <?php
+if(count($_COOKIE)==0){ echo "<script>window.location.assign('login.php');</script>";}
 ?>
 <!doctype html>
 <html>

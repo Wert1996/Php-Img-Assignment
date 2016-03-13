@@ -1,4 +1,5 @@
 <?php
+if(count($_COOKIE)==0){echo "<script>window.location.assign('login.php');</script>";}
  $conn=mysqli_connect("172.25.55.156", "test", "test","test");
         if($conn->connect_error){
                         die("Conection failed: " .$conn->connect_error);}
@@ -30,7 +31,6 @@ Edit your Disguise!
              <tr><td>Personal Life</td><td><input type="text" name="eper" value="<?php echo $per; ?>"/></td></tr>
              <tr><td>Favorite Horror Stories</td><td><input type="text" name="efs" value="<?php echo $fs; ?>"/></td></tr>
              <tr><center><input type="submit" /></center></tr></form></center>
-             <div id="footer"></div>
              </body></html>
              <?php
              function test_input($data) {
@@ -48,10 +48,6 @@ Edit your Disguise!
             }
             else
             {$eg=test_input($_POST[eg]);$valid=1;
-              if(!preg_match("/^[a-zA-Z ]*$/",$eg))
-                {
-                    echo "Ghostname must only contain letters or whitespace"; $valid=0;
-                }
              }
       $hb=test_input($_POST[ehobbies]);
       $eper=test_input($_POST[eper]);

@@ -11,17 +11,36 @@ body{
     padding: 30px;
 
 }
-
 #dp{
     border: 3px solid black;
     width: 20%;
     height: 30%;
     margin-top: 60px;
 }
-
-
-
-
+#header{
+    position:absolute;
+    width : 100%;
+    height: 100px;
+    background-color: #333333;
+    top:0px;
+    left:0px;
+}
+#footer{
+    position:absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #333333;
+    bottom: 0px;
+    left:0px;
+}
+.fill{
+    position: relative;
+    top: 100px;
+    height: 100px;
+    width: 60%;
+    background-color: #000000;
+    color:#ffffff; 
+}
 
 
 

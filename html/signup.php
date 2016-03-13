@@ -13,7 +13,7 @@ setcookie('id',"",time()-3600);
 
           <link rel="icon" href=""/>
 
-            <link rel="stylesheet" href="../css/signup.css" />
+          <link rel="stylesheet" href="../css/signup.css" />
 
             </head>
 

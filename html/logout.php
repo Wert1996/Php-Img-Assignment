@@ -1,4 +1,6 @@
 <?php
+setcookie('id',"",time()-(86400));
+
 ?>
 <!doctype html>
 <html>
@@ -8,6 +10,5 @@
 </body>
 </html>
 <?php
-setcookie('id',"",time()-3600);
 echo "<script>window.location.assign('login.php');</script>";
 ?>

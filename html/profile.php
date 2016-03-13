@@ -18,10 +18,6 @@
                                                   </head>
 
 <?php
-                 
-                  
-                   
-
                   $conn=mysqli_connect("172.25.55.156", "test", "test","test");
                   if($conn->connect_error){
                   die("Connection failed: " .$conn->connect_error);}
@@ -40,18 +36,18 @@
                 <center>
                   <div id='header'><h2><a href='changepassword.php'>Change Password</a></h2><h2><a href='editprofile.php'>Edit Profile!</a></h2><h2><a href='logout.php'>Logout</a></h2></div>
                   <img src='../images/profile/$_COOKIE[id].jpg' id='dp' />
-                  <div id='rank'>Rank:&nbsp'$rank'</div>
-                  <div id='ghostname'>Ghost Name:&nbsp'$ghostname'</div>
-                  <div id='hobbies'>Hobbies:&nbsp'$hobbies'</div>
-                  <div id='personal_life'>Personal Life&nbsp'$per'</div>
-                  <div id='stories_contributed'>Stories Contributed:&nbsp'$sc'</div>
-                  <div id='stories_read'>Stories Read:&nbsp'$sr'</div>
-                 <div id='favorite_stories'>Favorite Stories:&nbsp'$fs'</div>
+                  <div class='fill'>Rank:&nbsp'$rank'</div>
+                  <div class='fill'>Ghost Name:&nbsp'$ghostname'</div>
+                  <div class='fill'>Hobbies:&nbsp'$hobbies'</div>
+                  <div class='fill'>Personal Life&nbsp'$per'</div>
+                  <div class='fill'>Stories Contributed:&nbsp'$sc'</div>
+                  <div class='fill'>Stories Read:&nbsp'$sr'</div>
+                 <div class='fill'>Favorite Stories:&nbsp'$fs'</div>
                   <div id='footer'></div>
                   </center>
                   </body>
                   </html>";}
-                  else {echo "<p><a href='login.php'>Try to login again.</a></p>";}
+                  else {echo "<script>window.location.assign('login.php');</script>";}
                   
                 ?>
 
